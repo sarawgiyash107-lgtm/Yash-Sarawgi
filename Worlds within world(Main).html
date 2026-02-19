@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimension | Explore Worlds Within Worlds</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Custom Fonts */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0d0d1a; /* Dark background for a cosmic feel */
+            color: #f0f0ff;
+            padding-top: 70px; /* Space for fixed-top navbar */
+        }
+
+        /* Nav Bar Customization */
+        .custom-navbar {
+            background-color: rgba(13, 13, 26, 0.95) !important; /* Slightly transparent dark background */
+            border-bottom: 2px solid #5a5a8a;
+        }
+
+        .navbar-brand {
+            color: #a0a0ff !important;
+        }
+
+        /* Hero Section (Visual Impact) */
+        .hero-section {
+            height: 100vh;
+            /* Placeholder for a thematic image */
+            background: url('https://picsum.photos/1200/800?abstract') no-repeat center center/cover;
+            position: relative;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6); 
+            z-index: 1;
+        }
+        .hero-section > * {
+            z-index: 2; /* Ensure text is above overlay */
+        }
+
+        /* Headings and Theme Consistency */
+        .custom-heading {
+            color: #a0a0ff; /* Thematic accent color */
+            text-shadow: 0 0 10px rgba(160, 160, 255, 0.5);
+        }
+
+        /* Card Styling (Design Consistency) */
+        .custom-card {
+            background-color: #1a1a33;
+            border: 1px solid #4d4d73;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border-color: #a0a0ff;
+        }
+
+        .custom-card .card-title {
+            color: #a0a0ff;
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        /* === NEW: Dashboard Styling (Best UI) === */
+        .dashboard-section {
+            background-color: #0f0f20;
+            padding: 60px 0;
+            border-top: 1px solid #2a2a4a;
+            border-bottom: 1px solid #2a2a4a;
+        }
+
+        .dashboard-card {
+            background-color: #1a1a33;
+            border: 2px solid #3d3d66;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .dashboard-card i {
+            font-size: 3rem;
+            color: #5a5a8a;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(160, 160, 255, 0.5);
+        }
+
+        .dashboard-card h3 {
+            color: #a0a0ff;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .dashboard-progress .progress {
+            height: 15px;
+            background-color: #2a2a4a;
+        }
+
+        .dashboard-progress .progress-bar {
+            background-color: #a0a0ff;
+            box-shadow: 0 0 8px rgba(160, 160, 255, 0.7);
+        }
+        /* === END NEW STYLING === */
+
+        /* Responsive Adjustments */
+        @media (max-width: 991.98px) {
+            .hero-section {
+                height: 60vh;
+            }
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .navbar-collapse {
+                background-color: #0d0d1a;
+                padding: 10px;
+            }
+        }
+        
+        /* Custom animation for creative feature */
+        @keyframes shift-glitch {
+            0% { transform: translate(1px, 1px); opacity: 0.9; }
+            50% { transform: translate(-1px, -1px); opacity: 0.7; }
+            100% { transform: translate(0, 0); opacity: 1; }
+        }
+
+        .perspective-shift-effect {
+            animation: shift-glitch 0.2s infinite;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark custom-navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-4 fw-bold" href="#">🌐 DIMENSION</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#dimension-theory">Theory</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#alternate-worlds">Worlds</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#perception">Perception</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex ms-lg-3" role="search" id="search-form">
+                        <input class="form-control me-2" type="search" placeholder="Search the Cosmos..." aria-label="Search" id="search-input">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section text-white text-center d-flex align-items-center justify-content-center">
+        <div class="container">
+            <h1 class="display-1 fw-bolder mb-3">BEYOND EVERY DIMENSION</h1>
+            <p class="lead mb-4">Explore worlds within worlds, where perspectives shift and realities intertwine.</p>
+        </div>
+    </section>
+      <main class="container my-5">
+
+          <section class="Dashboard-section mb-5" id="Dashboaed>
+                   <div class="container">
+                       <div class ="row text-center mb-5>
+                           <div class="col-12>
+   <h2 class="display-4 fw-bold custom-heading">Dimensions Metrics Dashboard</h2>
+                    <p class="text-muted"><font color="White">Analyzing the structural integrity of known and theoretical Realms</font></p>
+                      </div>
+                     </div>
+           
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="dashboard-card">
+
+                               <a href="knowwn dimensions.html">
+                            <i class="fas fa-cube"></i>
+                            <h3>Known Dimensions (4)</h3></a>
+                            <p class="text-muted"><font color="White">Space (X, Y, Z) + Time (T)</font></p>
+                            <div class="dashboard-progress">
+                                <div class="progress" role="progressbar" aria-label="Known Dimensions Progress" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar" style="width: 100%">Stable</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="dashboard-card">
+                              <a href="Theoretical Dimensions.html">
+                            <i class="fas fa-infinity"></i>
+                            <h3>Theoretical Dimensions (7+)</h3></a>
+                            <p class="text-muted"><font color="White">-Klein, String Theory (M-Theory)</font></p>
+                            <div class="dashboard-progress">
+                                <div class="progress" role="progressbar" aria-label="Theoretical Dimensions Progress" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar" style="width: 45%">45% Confirmed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="dashboard-card">
+                              <a href="Local energy Field.html">
+                            <i class="fas fa-bolt"></i>
+                            <h3>Local Energy Field</h3></a>
+                            <p class="text-muted"><font color="White">Gravitational distortion and dark energy flux.</font></p>
+                            <div class="dashboard-progress">
+                                <div class="progress" role="progressbar" aria-label="Energy Field Progress" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar" style="width: 78%">78% Nominal</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="row mb-5" id="dimension-theory">
+            <div class="col-12">
+                <h2 class="display-4 fw-bold custom-heading mb-4">Unraveling the Dimensional Fabric</h2>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="custom-card p-4 h-100">
+                    <h4 class="card-title"><i class="fas fa-atom me-2"></i> Kaluza-Klein Theory</h4>
+                    <p>A classic attempt to unify gravitation with electromagnetism by introducing a **fifth spatial dimension**. This dimension is theorized to be 'compactified' or rolled up, making it too small to be observed directly, yet its influence shapes the forces we experience.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="custom-card p-4 h-100">
+                    <h4 class="card-title"><i class="fas fa-project-diagram me-2"></i> M-Theory & The 11 Dimensions</h4>
+                    <p>Modern **String Theory** (specifically M-Theory) suggests the universe exists in **11 dimensions**: our 4 spacetime dimensions plus 7 additional, curled-up dimensions. These extra dimensions are necessary to make the mathematical framework consistent and may hold the key to a unified 'Theory of Everything'.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="display-4 fw-bold custom-heading" id="alternate-worlds">The Intertwined Realities</h2>
+                <p class="text-muted"><font color="White">Space, Time, and the Unseen Realms.</font></p>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="mystery-section">
+            <div class="col">
+                <div class="card h-100 shadow-lg custom-card">
+                    <img src="https://picsum.photos/400/200?abstract1" class="card-img-top" alt="Alternate Universes">
+                    <div class="card-body">
+                        <h5 class="card-title">Alternate Universes</h5>
+                        <p class="card-text">What if every choice spawned a new reality? Learn about the multiverse theory and infinite possibilities.</p>
+                        <a href="Alternate Universe.html" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-lg custom-card">
+                    <img src="https://picsum.photos/400/200?abstract2" class="card-img-top" alt="Mysteries of Time">
+                    <div class="card-body">
+                        <h5 class="card-title">Mysteries of Time</h5>
+                        <p class="card-text">From time dilation to the arrow of time, explore how our perception is shaped by the fourth dimension.</p>
+                        <a href="Mysteries of time.html" class="btn btn-primary">Discover</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col" id="perception">
+                <div class="card h-100 shadow-lg custom-card">
+                    <img src="https://picsum.photos/400/200?abstract3" class="card-img-top" alt="The Unseen Realms">
+                    <div class="card-body">
+                        <h5 class="card-title">The Unseen Realms</h5>
+                        <p class="card-text">Beyond the visible spectrum and known dimensions: the hidden spaces and energies that define reality.</p>
+                        <a href="The Unseen Realms.html" class="btn btn-primary">Investigate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2025 Dimension Project. Theme: Worlds Within Worlds.</p>
+            <p class="small">Created By Yash Sarawgi, Ruturaj Naik.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // === 1. Simple Search Bar Interactivity (Creative Feature) ===
+            $('#search-form').on('submit', function(event) {
+                event.preventDefault(); // Stop form submission
+                
+                let query = $('#search-input').val().toLowerCase();
+                let scrollTarget = null;
+                
+                if (query.includes('universe') || query.includes('world') || query.includes('alternate')) {
+                    alert('Searching for Alternate Worlds... Scrolling to content!');
+                    scrollTarget = '#alternate-worlds';
+                } else if (query.includes('time') || query.includes('mystery')) {
+                    alert('Searching for Mysteries... Scrolling to content!');
+                    scrollTarget = '#mystery-section';
+                } else if (query.includes('perception')) {
+                    alert('Searching for Perception... Scrolling to content!');
+                    scrollTarget = '#perception';
+                // NEW Search Terms
+                } else if (query.includes('theory') || query.includes('kaluza') || query.includes('string')) {
+                    alert('Searching for Dimension Theory... Scrolling to content!');
+                    scrollTarget = '#dimension-theory';
+                } else if (query.includes('dashboard') || query.includes('metrics') || query.includes('energy')) {
+                    alert('Accessing Dimension Dashboard... Scrolling to content!');
+                    scrollTarget = '#dashboard';
+                } else {
+                    alert('Query "' + query + '" warped into a higher dimension. Try "Universe", "Time", or "Theory".');
+                }
+                
+                if (scrollTarget) {
+                    $('html, body').animate({
+                        scrollTop: $(scrollTarget).offset().top - 70 // Scroll to the section
+                    }, 800);
+                }
+                
+                $('#search-input').val(''); // Clear the input
+            });
+
+            // === 2. UI/UX Enhancement: Dynamic Heading ===
+            $('.custom-heading').on('mouseenter', function() {
+                $(this).css('color', '#ffffff').animate({
+                    'letter-spacing': '2px'
+                }, 300);
+            }).on('mouseleave', function() {
+                $(this).css('color', '#a0a0ff').animate({
+                    'letter-spacing': '0px'
+                }, 300);
+            });
+
+            // === 3. Creative/Unique Feature: "Perspective Shift" Animation ===
+            // Adds a glitch effect to the entire body when the "Dive Deep" button is clicked
+            $('#dive-btn').on('click', function(e) {
+                e.preventDefault(); 
+                
+                let originalText = $(this).text();
+                $(this).text('SHIFTING PERSPECTIVE...');
+                
+                // Add the temporary animation class defined in the CSS
+                $('body').addClass('perspective-shift-effect');
+
+                setTimeout(() => {
+                    // Remove the effect and navigate after a brief delay
+                    $('body').removeClass('perspective-shift-effect');
+                    $(this).text(originalText);
+                    
+                    // Smoothly scroll to the content section
+                    $('html, body').animate({
+                        scrollTop: $($(this).attr('href')).offset().top - 70
+                    }, 1500); // Increased scroll time to match animation duration
+                }, 1500);
+            });
+            
+            // === 4. Navigation Smooth Scrolling ===
+            // Makes all internal navigation links scroll smoothly instead of jumping
+            $('a[href^="#"]').on('click', function(e) {
+                if (this.hash !== "") {
+                    // Prevent default action for links that trigger the shift animation
+                    if ($(this).attr('id') !== 'dive-btn') {
+                        e.preventDefault();
+                        let hash = this.hash;
+                        $('html, body').animate({
+                            scrollTop: $(hash).offset().top - 70 // Adjust for fixed navbar height
+                        }, 800);
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
